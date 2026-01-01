@@ -62,7 +62,7 @@ tailscale serve status
 ## AdGuard Home (HTTP backend)
 
 **Node:** `adguard`  
-**Internal Port:** `3000` (example)  
+**Internal Port:** `80` (example)  
 **Final URL:**  
 ```
 https://adguard.terrier-duck.ts.net
@@ -77,7 +77,7 @@ https://adguard.terrier-duck.ts.net
 2. Enable HTTPS via Tailscale:
 
 ```bash
-sudo tailscale serve --bg --https=443 http://localhost:3000
+sudo tailscale serve --bg --https=443 http://localhost:80
 ```
 
 3. Verify:
@@ -206,7 +206,7 @@ Type=oneshot
 RemainAfterExit=yes
 
 ExecStartPre=-/usr/bin/tailscale serve --https=443 off --yes
-ExecStart=/usr/bin/tailscale serve --bg --https=443 http://localhost:3000
+ExecStart=/usr/bin/tailscale serve --bg --https=443 http://localhost:80
 ExecStop=/usr/bin/tailscale serve --https=443 off --yes
 
 [Install]
