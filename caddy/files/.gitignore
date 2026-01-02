@@ -1,6 +1,0 @@
-# Secrets - never commit these
-porkbun.env
-
-# Caddy data
-data/
-config/
