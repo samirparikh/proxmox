@@ -1,0 +1,31 @@
+{
+	email your-email@example.com
+}
+
+(tls_porkbun) {
+	tls {
+		dns porkbun {
+			api_key {env.PORKBUN_API_KEY}
+			api_secret_key {env.PORKBUN_API_SECRET}
+		}
+	}
+}
+
+adguard.winchser.com {
+	import tls_porkbun
+	reverse_proxy http://adguard.terrier-duck.ts.net:80
+}
+
+pve1.winchser.com {
+	import tls_porkbun
+	reverse_proxy https://pve1.terrier-duck.ts.net:8006 {
+		transport http {
+			tls_insecure_skip_verify
+		}
+	}
+}
+
+jellyfin.winchser.com {
+	import tls_porkbun
+	reverse_proxy http://jellyfin.terrier-duck.ts.net:8096
+}
