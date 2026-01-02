@@ -1,4 +1,11 @@
 #!/bin/bash
+
+## To Use:
+#  apt install curl
+#  curl -L -O https://raw.githubusercontent.com/samirparikh/proxmox/main/install-docker-debian.sh
+#  chmod +x install-docker-debian.sh
+#  ./install-docker-debian.sh
+
 set -euo pipefail
 
 echo "=== Installing Docker on Debian ==="
