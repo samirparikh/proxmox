@@ -1,31 +1,38 @@
 {
-	email your-email@example.com
+        email siparikh@gmail.com
 }
 
-(tls_porkbun) {
-	tls {
-		dns porkbun {
-			api_key {env.PORKBUN_API_KEY}
-			api_secret_key {env.PORKBUN_API_SECRET}
-		}
-	}
+(common) {
+        tls {
+                dns porkbun {
+                        api_key {env.PORKBUN_API_KEY}
+                        api_secret_key {env.PORKBUN_API_SECRET}
+                }
+        }
 }
 
-adguard.winchser.com {
-	import tls_porkbun
-	reverse_proxy http://adguard.terrier-duck.ts.net:80
+ag.example.com {
+        import common
+        reverse_proxy http://adguard.tailnet.ts.net:80
+        # Or use the Tailscale IP: http://100.96.175.20:80
+        # Adjust port to match your AdGuard Home web UI port (usually 80 or 3000)
 }
 
-pve1.winchser.com {
-	import tls_porkbun
-	reverse_proxy https://pve1.terrier-duck.ts.net:8006 {
-		transport http {
-			tls_insecure_skip_verify
-		}
-	}
+pve1.example.com {
+        import common
+        reverse_proxy https://pve1.tailnet.ts.net:8006 {
+                transport http {
+                        tls_insecure_skip_verify
+                }
+        }
 }
 
-jellyfin.winchser.com {
-	import tls_porkbun
-	reverse_proxy http://jellyfin.terrier-duck.ts.net:8096
+jf.example.com {
+        import common
+        reverse_proxy http://jellyfin.tailnet.ts.net:8096
+}
+
+vw.example.com {
+        import common
+        reverse_proxy http://vaultwarden.tailnet.ts.net:8080
 }
