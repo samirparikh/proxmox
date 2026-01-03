@@ -28,3 +28,10 @@ vaultwarden.example.com {
         reverse_proxy http://hostname.tailnet.ts.net:8080
 }
 ```
+
+7.  Restart Caddy
+```
+systemctl reload caddy
+systemctl restart caddy
+systemctl status caddy
+```
