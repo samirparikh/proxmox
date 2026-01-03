@@ -26,9 +26,9 @@ Custom Caddy build with Porkbun DNS provider for DNS-01 ACME challenges. Used to
 
    | Type  | Host     | Answer                       |
    |-------|----------|------------------------------|
-   | CNAME | adguard  | caddy.terrier-duck.ts.net    |
-   | CNAME | pve1     | caddy.terrier-duck.ts.net    |
-   | CNAME | jellyfin | caddy.terrier-duck.ts.net    |
+   | CNAME | adguard  | caddy.tailnet.ts.net    |
+   | CNAME | pve1     | caddy.tailnet.ts.net    |
+   | CNAME | jellyfin | caddy.tailnet.ts.net    |
 
 4. **Enable API access for your domain in Porkbun:**
 
@@ -67,7 +67,7 @@ docker compose down
    ```caddyfile
    newservice.winchser.com {
        import tls_porkbun
-       reverse_proxy http://newservice.terrier-duck.ts.net:PORT
+       reverse_proxy http://newservice.tailnet.ts.net:PORT
    }
    ```
 
