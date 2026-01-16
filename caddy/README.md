@@ -65,7 +65,7 @@ docker compose down
 2. Add a new block to the Caddyfile:
 
    ```caddyfile
-   newservice.winchser.com {
+   newservice.tailnet.com {
        import tls_porkbun
        reverse_proxy http://newservice.tailnet.ts.net:PORT
    }
