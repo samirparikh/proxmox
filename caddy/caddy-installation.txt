@@ -1,0 +1,40 @@
+I did not end up using docker to install Caddy.  Instead, I followed these steps:
+  34  apt install -y debian-keyring debian-archive-keyring apt-transport-https curl
+   35  curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/gpg.key' | gpg --dearmor -o
+ /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+   36  curl -1sLf 'https://dl.cloudsmith.io/public/caddy/stable/debian.deb.txt' | tee /etc/
+apt/sources.list.d/caddy-stable.list
+   37  chmod o+r /usr/share/keyrings/caddy-stable-archive-keyring.gpg
+   38  chmod o+r /etc/apt/sources.list.d/caddy-stable.list
+   39  apt update
+   40  apt install caddy
+   41  cd /etc/caddy/
+   42  ls
+   43  mv Caddyfile Caddyfile.backup
+   44  vi Caddyfile
+   45  cd
+   46  caddy
+   47  caddy reload
+   48  caddy start
+   49  caddy validate --config /etc/caddy/Caddyfile
+   50  systemctl start caddy
+   51  systemctl status caddy
+   52  ps aux | grep '[c]addy'
+   53  exit
+   54  tailscale status
+   55  more /etc/caddy/Caddyfile
+   56  rm /etc/caddy/Caddyfile
+   57  vi /etc/caddy/Caddyfile
+   58  caddy validate --config /etc/caddy/Caddyfile
+   59  caddy fmt --overwrite
+   60  caddy fmt --overwrite /etc/caddy/Caddyfile
+   61  caddy validate --config /etc/caddy/Caddyfile
+   62  systemctl restart caddy
+   63  exit
+   64  vi /etc/caddy/Caddyfile
+   65  history | grep restart
+   66  systemctl restart caddy
+   67  cat /etc/caddy/Caddyfile
+   68  exit
+
+When restarting caddy, use systemctl restart caddy.
