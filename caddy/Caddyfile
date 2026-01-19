@@ -41,3 +41,8 @@ ld.example.com {
         import common
         reverse_proxy http://192.168.1.XXX:9090
 }
+
+ntfy.example.com {
+        import common
+        reverse_proxy http://192.168.1.XXXX
+}
