@@ -107,5 +107,8 @@ Then configure each clone's cloud-init (since they'll inherit the template's set
 qm set 101 --ipconfig0 ip=dhcp
 qm set 101 --name alpine-web
 
+# or, Set static IP
+qm set 101 --ipconfig0 ip=192.168.1.xxx/24,gw=192.168.1.1
+
 qm start 101
 ```
